@@ -48,6 +48,22 @@ function createCard(cardInfo) {
 
     cardListItem.appendChild(stats)
 
+    // games
+
+    const games = document.createElement('ul')
+    games.setAttribute('class', 'card--games')
+
+    for (const pokemonGames of cardInfo.game_indices) {
+        let index = pokemonGames.game_index
+        let name = pokemonGames.version.name 
+        let statListItem = document.createElement('li')
+
+        statListItem.textContent = `${index} : ${name}`
+        games.appendChild(statListItem)
+    }
+
+    cardListItem.appendChild(games)
+
     return cardListItem;
 }
 
